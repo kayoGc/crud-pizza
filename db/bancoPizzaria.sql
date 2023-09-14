@@ -18,3 +18,6 @@ INSERT INTO pizza(sabor, tipo, preco)
 VALUES ("Mussarela",  "Salgada", 25.90),
 ("Frango com catupiri", "Salgada", 29.90),
 ("Chocolate", "Doce", 34.90);
+
+-- selecionando dados
+SELECT sabor, tipo, preco FROM pizza;

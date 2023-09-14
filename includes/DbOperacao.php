@@ -1,6 +1,6 @@
 <?php 
     class DbOperacao {
-        private object $con;
+        private $con;
 
         function __construct() {
             require_once dirname(__FILE__) . "/DbConecct.php";
@@ -21,5 +21,23 @@
         }
 
 
+        function getPizzas() {
+            $stmt = $this->con->prepare('SELECT sabor, tipo, preco FROM pizza;');
+            $stmt->execute();
+            $stmt->bind_result($sabor, $tipo, $preco);
+
+            $pizzas = array();
+
+            while ($stmt->fetch()) {
+                $pizza = array();
+                $pizza['sabor'] = $sabor;
+                $pizza['tipo'] = $tipo;
+                $pizza['preco'] = $preco;
+                
+                array_push($pizzas, $pizza);
+            }
+
+           return $pizzas;;
+        }
     }
 ?>

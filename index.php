@@ -1,3 +1,8 @@
+<?php
+require_once dirname(__FILE__) . '/includes/DbOperacao.php';
+$operarDb = new DbOperacao;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,17 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzaria seu zé</title>
-    <style>
-        * {
-            font-size: 25px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
@@ -39,6 +34,32 @@
         <!-- envia valores -->
         <input type="submit" value="Criar pizza" name="btnCriarPizza" id="btnCriarPizza">
     </form>
+
+    <main>
+        <h2>Pizzas disponiveis</h2>
+        <div class="pizzas">
+            <?php
+            $pizzas = $operarDb->getPizzas();
+            foreach ($pizzas as $pizza) {
+
+            ?>
+                <article class="pizza">
+                    <h3><?php echo $pizza['sabor'] ?></h3>
+                    <p>Tipo: <?php echo $pizza['tipo'] ?></p>
+
+                    <p>Preço: <span class="preço"><?php echo $pizza['preco'] ?></span></p>
+                    <button>opa</button>
+                </article>
+            <?php
+
+            }
+            ?>
+
+            
+        </div>
+    </main>
+
+
 </body>
 
 </html>

@@ -12,5 +12,7 @@
         }  else {
             echo "FRACASSO";
         }
+
+        header("Location: ../index.php");
     }
 ?>
