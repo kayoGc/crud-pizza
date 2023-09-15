@@ -39,7 +39,7 @@ $operarDb = new DbOperacao;
         <h2>Pizzas disponiveis</h2>
         <div class="pizzas">
             <?php
-            $pizzas = $operarDb->getPizzas();
+            $pizzas = $operarDb->getAllPizzas();
             foreach ($pizzas as $pizza) {
 
             ?>
@@ -48,10 +48,12 @@ $operarDb = new DbOperacao;
                     <p>Tipo: <?php echo $pizza['tipo'] ?></p>
 
                     <p>Preço: <span class="preço"><?php echo $pizza['preco'] ?></span></p>
-                    <button>opa</button>
-                </article>
+                    <form action="php_action/modificar-pizza.php" method="post">
+                        <button type="submit" name="btnModificar" value="<?php echo htmlspecialchars($pizza['id']);  ?>"> modificar</button>
+                    </form> 
+                </article>               
             <?php
-
+  
             }
             ?>
 
@@ -60,6 +62,7 @@ $operarDb = new DbOperacao;
     </main>
 
 
+    
 </body>
 
 </html>

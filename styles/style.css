@@ -26,18 +26,32 @@ main {
     min-width: 10rem;
     max-width: 10rem;
     min-height: 10rem;
-    padding: 1rem;
     margin: 0.5rem;
     border: 1px solid;
     align-items: center;
     justify-content: space-between;
 }
 
-.pizza button {
-    position: absolute;
-    visibility: hidden;
+.pizza h3 {
+    padding: 1rem;
 }
+
+.pizza p {
+    padding: 1rem;
+}   
 
 .preço {
     font-weight: bold;
+}
+
+.pizza form {
+    width: 100%;
+    border-top: 1px black solid;
+    display: flex;
+    align-items: center;
+}
+
+.pizza form button {
+    padding: 0.5rem;
+    margin: 1rem;
 }
