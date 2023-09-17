@@ -40,6 +40,15 @@ $operarDb = new DbOperacao;
         <div class="pizzas">
             <?php
             $pizzas = $operarDb->getAllPizzas();
+
+            if (empty($pizzas)) {
+                ?>
+               
+               <p>Não tem pizzas registradas, é necessário criar novas no sistema!</p>
+                
+            <?php
+            }
+
             foreach ($pizzas as $pizza) {
 
             ?>
@@ -48,21 +57,27 @@ $operarDb = new DbOperacao;
                     <p>Tipo: <?php echo $pizza['tipo'] ?></p>
 
                     <p>Preço: <span class="preço"><?php echo $pizza['preco'] ?></span></p>
-                    <form action="php_action/modificar-pizza.php" method="post">
-                        <button type="submit" name="btnModificar" value="<?php echo htmlspecialchars($pizza['id']);  ?>"> modificar</button>
-                    </form> 
-                </article>               
+
+                    <footer>
+                        <form action="php_action/modificar-pizza.php" method="post">
+                            <button type="submit" name="btnModificar" value="<?php echo htmlspecialchars($pizza['id']);  ?>"> modificar</button>
+                        </form>
+                        <form action="php_action/deletar-pizza.php" method="post">
+                            <button type="submit" name="btnDeletar" value="<?php echo htmlspecialchars($pizza['id']);  ?>">Deletar</button>
+                        </form>
+                    </footer>
+                </article>
             <?php
-  
+
             }
             ?>
 
-            
+
         </div>
     </main>
 
 
-    
+
 </body>
 
 </html>

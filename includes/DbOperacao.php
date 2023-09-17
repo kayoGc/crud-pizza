@@ -11,6 +11,7 @@
             $this->con = $db->conectar();
         }
 
+        // CREATE - cria uma pizza
         function criarPizza($sabor, $tipo, $preco) {
             $stmt = $this->con->prepare("INSERT INTO pizza(sabor, tipo, preco) VALUES (?, ?, ?)");
             $stmt->bind_param("ssd", $sabor, $tipo, $preco);
@@ -20,6 +21,7 @@
             return false;
         }
 
+        // READ - pega informação de uma pizza espeficia
         function getPizza($idPizza) {
             $stmt = $this->con->prepare(
                 "SELECT sabor, tipo, preco 
@@ -40,6 +42,7 @@
            return $pizza;
         }
 
+        // READ - pega todas as pizzas em um array
         function getAllPizzas() {
             $stmt = $this->con->prepare('SELECT idPizza, sabor, tipo, preco FROM pizza;');
             $stmt->execute();
@@ -60,7 +63,8 @@
            return $pizzas;
         }
 
-        function modfyPizza($sabor, $tipo, $preco, $idPizza) {
+        // UPDATE - Modifica uma pizza
+        function modifyPizza($sabor, $tipo, $preco, $idPizza) {
             $stmt = $this->con->prepare(
                 "UPDATE pizza 
                  SET sabor = ?, tipo = ?, preco = ?
@@ -68,6 +72,19 @@
             );
             $stmt->bind_param('ssdi', $sabor, $tipo, $preco, $idPizza);
 
+            if ($stmt->execute()) {
+                return true;
+            }
+            return false;
+        }
+    
+        // DELETE - Apaga uma pizza
+        function deletePizza($idPizza) {
+            $stmt = $this->con->prepare(
+                "DELETE FROM pizza 
+                 WHERE idPizza = ?"
+            );
+            $stmt->bind_param('i', $idPizza);
             if ($stmt->execute()) {
                 return true;
             }

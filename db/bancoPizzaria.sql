@@ -21,12 +21,12 @@ VALUES ("Mussarela",  "Salgada", 25.90),
 
 -- selecionando dados
 SELECT idPizza, sabor, tipo, preco FROM pizza;
-
 SELECT sabor, tipo, preco FROM pizza WHERE idPizza = 1;
-
-
 
 --  modificando dados
 UPDATE pizza 
 SET sabor = 'Chocolate com morango', tipo = 'Doce', preco = 30.90
 WHERE idPizza = 1;
+
+-- deletando pizza
+DELETE FROM pizza WHERE idPizza = 2;

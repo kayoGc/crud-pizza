@@ -23,8 +23,8 @@ main {
 .pizza {
     display: flex;
     flex-direction: column;
-    min-width: 10rem;
-    max-width: 10rem;
+    min-width: 13rem;
+    max-width: 13rem;
     min-height: 10rem;
     margin: 0.5rem;
     border: 1px solid;
@@ -44,14 +44,15 @@ main {
     font-weight: bold;
 }
 
-.pizza form {
+.pizza footer {
     width: 100%;
     border-top: 1px black solid;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.pizza form button {
+.pizza button {
     padding: 0.5rem;
-    margin: 1rem;
+    margin: 0.5rem;
 }
