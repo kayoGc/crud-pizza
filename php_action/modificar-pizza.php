@@ -40,7 +40,7 @@ if (isset($_POST['btnModificar'])) {
 <?php
 }
 if (isset($_POST['btnModificarPizza'])) {
-    $modificar->modifyPizza($_POST['txtSaborPizza'], $_POST['slcTipoPizza'], $_POST['numPrecoPizza'], $_POST['btnModificarPizza']);
+    $modificar->updatePizza($_POST['txtSaborPizza'], $_POST['slcTipoPizza'], $_POST['numPrecoPizza'], $_POST['btnModificarPizza']);
     header('Location: ../index.php');
 }
 

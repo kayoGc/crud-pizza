@@ -64,7 +64,7 @@
         }
 
         // UPDATE - Modifica uma pizza
-        function modifyPizza($sabor, $tipo, $preco, $idPizza) {
+        function updatePizza($sabor, $tipo, $preco, $idPizza) {
             $stmt = $this->con->prepare(
                 "UPDATE pizza 
                  SET sabor = ?, tipo = ?, preco = ?
